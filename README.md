@@ -54,6 +54,10 @@ Below are listed the author, character count, and language of the top 3 solution
 2. Christian Sonne: 299 characters in Bourne shell + Pyth
 3. Christian Iversen: 306 characters in zsh
 
+## Picture of the winners
+The winners of Schantz' New Year's Coding Challenge together with COO Stiig Berg Andersen:
+![The winners of Schantz' New Year's Coding Challenge together with COO Stiig Berg Andersen](winners.jpg)
+
 
 # Credits
 A big thanks to all the participants for taking up the challenge and submitting fun and interesting solutions in 18(!) different languages!
