@@ -1,0 +1,56 @@
+partridge:
+  jmpz _partridge_single
+
+  ; "and a "
+  push -65
+  push 0
+  push -65
+  push 3
+  push 13
+  push 0
+
+  push 6
+  push -7
+  call write_buffer
+
+  jmp _partridge_common
+
+_partridge_single:
+  push 'A'
+  write
+  push ' '
+  write
+
+_partridge_common:
+  ; "Partridge in a Pear Tree\n"
+  push -91
+  push 0
+  push 0
+  push 13
+  push -17
+  push -69
+  push 13
+  push -4
+  push 0
+  push -21
+  push -69
+  push -4
+  push -69
+  push 9
+  push 4
+  push -69
+  push 0
+  push 2
+  push -1
+  push 4
+  push 13
+  push 15
+  push 13
+  push -4
+  push -21
+
+  push 25
+  push -3
+  call write_buffer
+
+  ret

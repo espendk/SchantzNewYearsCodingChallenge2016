@@ -1,0 +1,18 @@
+L = """On the %s%s day of Christmas
+my true love sent to me:
+12 Drummers Drumming       
+Eleven Pipers Piping       
+Ten Lords a Leaping        
+Nine Ladies Dancing        
+Eight Maids a Milking      
+Seven Swans a Swimming     
+Six Geese a Laying         
+Five Golden Rings          
+Four Calling Birds         
+Three French Hens          
+Two Turtle Doves           
+%s Partridge in a Pear Tree
+"""
+
+for x in range(1, 13):
+    print L[:54] % (x, {1: "st", 2: "nd", 3: "rd"}.get(x, "th")) + L[-x*28:] % ["A", "and a"][x > 1]

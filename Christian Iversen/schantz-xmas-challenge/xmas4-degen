@@ -1,0 +1,25 @@
+#!/usr/bin/python
+from StringIO import StringIO
+import sys
+
+q = ""
+s = ""
+L={" ":"0","\t":"1","\n":""}
+for c in sys.stdin.read():
+    s += L[c]
+    if len(s) > 7:
+        q += chr(int(s, 2))
+        s = ""
+
+print q
+
+# q = ""
+# s = ""
+# L={" ":"0","\t":"1","\n":""}
+# for c in sys.stdin.read():
+#     s += L[c]
+#     if len(s) > 7:
+#         q += chr(int(s, 2))
+#         s = ""
+
+# print str(hex(int(s, 2)))[2:-1].decode("hex").decode("hex")

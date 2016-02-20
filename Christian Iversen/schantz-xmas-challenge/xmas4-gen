@@ -1,0 +1,13 @@
+#!/usr/bin/python
+from StringIO import StringIO
+
+buf = StringIO()
+
+def encode(x):
+    buf.write(" "*x + "\t")
+
+with file("full-lyrics.txt") as f:
+    for c in f.read():
+        encode(ord(c))
+
+print buf.getvalue(),

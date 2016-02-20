@@ -1,0 +1,113 @@
+  push 1
+  call headline
+  call part1
+  push 0
+  call partridge
+  push 10
+  write
+
+  ; start from 0
+  push 2
+
+_main_start:
+
+  dup
+  call headline
+
+  call part1
+
+_part12:
+  dup
+  push 12
+  sub
+  jmpn _part11
+  call part12
+
+_part11:
+  dup
+  push 11
+  sub
+  jmpn _part10
+  call part11
+
+_part10:
+  dup
+  push 10
+  sub
+  jmpn _part9
+  call part10
+
+_part9:
+  dup
+  push 9
+  sub
+  jmpn _part8
+  call part9
+
+_part8:
+  dup
+  push 8
+  sub
+  jmpn _part7
+  call part8
+
+_part7:
+  dup
+  push 7
+  sub
+  jmpn _part6
+  call part7
+
+_part6:
+  dup
+  push 6
+  sub
+  jmpn _part5
+  call part6
+
+_part5:
+  dup
+  push 5
+  sub
+  jmpn _part4
+  call part5
+
+_part4:
+  dup
+  push 4
+  sub
+  jmpn _part3
+  call part4
+
+_part3:
+  dup
+  push 3
+  sub
+  jmpn _part2
+  call part3
+
+_part2:
+  call part2
+
+_loop:
+  dup
+
+  dup
+  call partridge
+
+  push 10
+  write
+  ; increment
+  push 1
+  add
+  dup
+  ; are we at 13 yet?
+  push 13
+  sub
+  ; if so, abort
+  jmpz _main_end
+  ; if not, continue
+  jmp _main_start
+
+_main_end:
+  halt

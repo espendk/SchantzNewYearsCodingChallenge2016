@@ -1,0 +1,3 @@
+[submodule "gs2"]
+	path = gs2
+	url = https://github.com/nooodl/gs2.git

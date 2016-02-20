@@ -1,0 +1,29 @@
+#!/usr/bin/python
+
+import sys
+
+lyrics = open("full-lyrics.txt").read()
+
+def write(x):
+    if isinstance(x, int):
+        sys.stdout.write(chr(x))
+    else:
+        sys.stdout.write(x)
+
+def dump_rle(string):
+    for c in string:
+        write(" " * ord(c))
+        write("\n")
+
+# push string to stack...
+write(0x04)
+# string data
+dump_rle(lyrics)
+# push string to stack as sequence
+write(0x05)
+# split by newline
+write(0x2a)
+# begin map {}
+write(0xfe)
+# count length of each element
+write(0x2e)

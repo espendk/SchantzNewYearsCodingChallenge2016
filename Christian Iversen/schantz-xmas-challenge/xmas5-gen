@@ -1,0 +1,42 @@
+#!/usr/bin/python
+import sys
+from StringIO import StringIO
+from whitespace import WhitespaceAssemblerParser, WhitespaceAssembler
+import xmas5py
+
+parser = WhitespaceAssemblerParser()
+asm = WhitespaceAssembler()
+
+lines = [
+    "my true love sent to me:",
+    "Two Turtle Doves",
+    "Three French Hens",
+    "Four Calling Birds",
+    "Five Golden Rings",
+    "Six Geese a Laying",
+    "Seven Swans a Swimming",
+    "Eight Maids a Milking",
+    "Nine Ladies Dancing",
+    "Ten Lords a Leaping",
+    "Eleven Pipers Piping",
+    "12 Drummers Drumming",
+]
+
+asm.load_library("xmas5-ws/main.wsa")
+
+for index, line in enumerate(lines):
+    best = xmas5py.best_offset(line)
+    asm.label("part%d" % (index+1))
+    asm.push(ord('\n') - best)
+    for char in reversed(line):
+        asm.push(ord(char) - best)
+    asm.push(len(line) + 1)
+    asm.push(best - xmas5py.BASE_OFFSET)
+    asm.call("write_buffer")
+    asm.ret()
+
+asm.load_library("xmas5-ws/headline.wsa")
+asm.load_library("xmas5-ws/partridge.wsa")
+asm.load_library("xmas5-ws/write_buffer.wsa")
+
+sys.stdout.write(asm.get_result())

@@ -1,0 +1,91 @@
+headline:
+  ; "On the "
+  push -72
+  push -3
+  push 0
+  push 12
+  push -72
+  push 6
+  push -25
+
+  push 7
+  push 0
+  call write_buffer
+
+  ; write counter
+  dup
+  output
+
+  ; decrement, is it zero? -> 1st
+  push 1
+  sub
+  dup
+  jmpz _st
+
+  ; decrement, is it zero? -> 2nd
+  push 1
+  sub
+  dup
+  jmpz _nd
+
+  ; decrement, is it zero? -> 3rd
+  push 1
+  sub
+  dup
+  jmpz _rd
+
+  ; nth
+  jmp _th
+
+_st:
+  push 't'
+  push 's'
+  jmp headline_end
+
+_nd:
+  push 'd'
+  push 'n'
+  jmp headline_end
+
+_rd:
+  push 'd'
+  push 'r'
+  jmp headline_end
+
+_th:
+  push 'h'
+  push 't'
+
+headline_end:
+  ; write number suffix
+  write
+  write
+
+  ; discard counter
+  pop
+
+  ; " day of Christmas\n"
+  push -105
+  push 0
+  push -18
+  push -6
+  push 1
+  push 0
+  push -10
+  push -1
+  push -11
+  push -48
+  push -83
+  push -13
+  push -4
+  push -83
+  push 6
+  push -18
+  push -15
+  push -83
+
+  push 18
+  push 11
+  call write_buffer
+
+  ret

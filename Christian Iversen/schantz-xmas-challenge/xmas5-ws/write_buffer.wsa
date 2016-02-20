@@ -1,0 +1,24 @@
+write_buffer:
+  push 0
+  swap
+  push 104
+  add
+  set
+
+write_buffer_loop:
+  swap
+  push 0
+  get
+
+  add
+  write
+  push 1
+  sub
+  dup
+
+  jmpz write_buffer_end
+  jmp write_buffer_loop
+
+write_buffer_end:
+  pop
+  ret
