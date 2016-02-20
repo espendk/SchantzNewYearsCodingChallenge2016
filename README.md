@@ -1,6 +1,6 @@
 # Schantz' New Year's Coding Challenge 2016
 This repo contains solutions submitted to Schantz' New Year's Coding Challenge 2016 [on LinkedIn](https://www.linkedin.com/pulse/new-years-coding-challenge-espen-h%C3%B8jsgaard).
-Only solutions where the author has granted express permission are included in this repo, and the solution are organized by author.
+Only solutions where the author has granted express permission are included in this repo, and the solutions are organized by author.
 
 
 # The Challenge
